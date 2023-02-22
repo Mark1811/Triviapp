@@ -1,0 +1,213 @@
+.mainbox{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 56rem;
+    top: 15rem;
+}
+
+.mainbox:after{
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    /*background: url(../Assets/580b57fcd9996e24bc43c44e.png) no-repeat ;*/
+    background-size: 10%;  
+    left: 2%;
+    transform: rotate(90deg);
+    
+}
+
+.box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    border: 10px solid whitesmoke;
+    overflow: hidden;
+    transition: all ease-in-out 5s;
+    transform: rotate(90deg);
+    z-index: 1;
+   
+}
+span{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+
+}
+.font{
+    color: #ffffff;
+    font-size: 20px;
+}
+.span1{
+    clip-path: polygon(0 0, 0 100% , 50% 50%);
+    background-color: rgb(255, 251, 3);
+}
+
+.span2{
+    clip-path: polygon(100% 0, 0 0, 50% 50% );
+    background-color: rgb(255, 0, 85);
+}
+
+.span3{
+    clip-path: polygon(100% 100%, 100% 0, 50% 50%);
+    background-color: rgb(255, 251, 2);
+    
+}
+
+.span4{
+    clip-path: polygon(0 100%, 100% 100%, 50% 50%);
+    background-color: rgb(255, 0, 85);
+}
+
+.box .span1 h5{
+    position: absolute;
+    top: 40%;
+    right:70%;
+    transform: rotate(-180deg);
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+.box .span2 h5{
+    position: absolute;
+    top: 18%;
+    right: 46%;
+    transform: rotate(270deg);
+    text-align: center;
+    color: white;
+}
+
+.box .span3 h5{
+    position: absolute;
+    top: 45%;
+    right: 20%;
+    transform: rotate(180deg);
+    text-align: center;
+    color: white;
+}
+.box .span4 h5{
+    position: absolute;
+    top: 70%;
+    right: 45%;
+    transform: rotate(270deg);
+    text-align: center;
+    color: white;
+}
+
+.spin{
+    position: absolute;
+    top:30%;
+    left: 76.5%;
+    transform: translate(-50%, -50%);
+    width: 98px;
+    height: 60px;
+    border-radius: 15%;
+    border: 1px solid white;
+    background: rgb(19, 92, 202);
+    color: aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 22px;
+    font-size: 17px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.spin:active{
+    width: 95px;
+    font-size: 15px;
+}
+
+.mainbox.animate:after{
+    animation: animateArrow 0.7s ease infinite;
+}
+/*
+audio{
+    display: none;
+}
+*/
+@keyframes animateArrow{
+    50%{
+        right: -50px;
+    }
+}
+
+.base{
+    position: relative;
+    left: 61rem;
+    top: 33rem;
+    width: 10%;
+    height: 80px;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0 100%);
+    background-color: rgb(56, 56, 82);
+    border-radius: 15px;
+    border: solid 1px black;
+}
+.centro{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 20px solid rgb(56, 56, 82);
+    background: rgb(255, 255, 255);
+    color: aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+    
+    font-weight: 22px;
+    font-size: 17px;
+    
+}
+.robot{
+    position: absolute;
+    width: 20%;
+    height: 40%;
+    left: 5%; 
+}
+.logoGyl{
+    position: absolute;
+    width: 12%;
+    height: 20%;
+    left: 39%;
+    top: 7%;
+}
+.modal{
+    background: rgba(32,35,41,.8);
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: 2000;
+}
+.modalDentro{
+    display:grid;
+    justify-content:center;
+    align-items: center;
+    padding: 10px;
+    margin: auto;
+    margin-top: 100px;
+    width: 25%;
+    height: 15rem;
+    border-radius: 10%;
+    border: solid 3px rgb(252, 245, 245);
+    background: linear-gradient(90deg, rgb(72, 170, 6) 0%, rgb(1, 255, 1) 100%);
+}
+.modal h2{
+    display: block;
+    color:#ffffff;
+    font-size: 35px;
+    text-align: center;
+   
+}
+.modal button{
+     border: solid 1px black;
+    padding: 5px;
+    border-radius:10px;
+    color: #ffffff;
+    background-color: blue;
+}
