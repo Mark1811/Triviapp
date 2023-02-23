@@ -24,7 +24,7 @@
     cursor: pointer;
 }
 .buton:hover{
-    background-color: rgba(57, 19, 160, 0.747);
+    border: solid 1px beige;
 }
 
 .robot{
@@ -54,6 +54,44 @@
     position: absolute;
     bottom: 85px;
     left: 22px;
+    display:inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 19px;
+    color:rgba(7, 7, 129, 0.685);
+}
+
+/*Modal*/
+.robot2{
+    display: block;
+    position: absolute;
+    height: 300px;
+    top: 100px;
+    left: 50px;
+    z-index: 3;
+}
+.robot2 img{
+    width: 200px;
+    height: 250px;
+}
+.mensaje2{
+    
+    width: 200px;
+    height: 200px;
+    
+}
+.containerMsj2{
+    position: absolute;
+    display: inline-block;
+    left: 200px;
+    top: 55px;
+   z-index: 2;
+}
+.containerMsj2 h3{
+    position: absolute;
+    bottom: 70px;
+    left: 30px;
     display:inline-block;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
