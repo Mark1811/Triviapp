@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import '../css/forms.css';
 import FormInput from '../components/FormInput';
 import logo from '../Assets/img/G&L Blanco.png';
+
 import { Form } from "react-router-dom";
 
 const Forms=() =>{
 
-   const [ values, setValues] = useState ({
+   const [ form, setForm] = useState ({
        edad:"",
        nombre:"",
        telefono:"",
@@ -42,7 +43,7 @@ const Forms=() =>{
         placeholder: "Telefono",
         errorMessage:"Deberia incluir solo números ",
         label: "Telefono",
-        pattern: "^[0-8]+$",
+        pattern: "^[0-15]+$",
         required:true,
 
     },
@@ -61,26 +62,44 @@ const Forms=() =>{
     
     const handleSubmit = (e)=>{
         e.preventDefault();
+        addUser(form);
       
     };
     const onChange =(e)=> {
-      setValues({...values,[e.target.name]: e.target.value});
+      setForm({...form,[e.target.name]: e.target.value});
     };
      
-    console.log(values);
+    console.log(form);
+    
+    const addUser =(data)=>{
+   
+        const requesInit = {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        }
+        
+        fetch('http://localhost:54231/api/juego/registro', requesInit)
+        .then(res => res.json())
+        
+        console.log(data);
+      };
 
     return (
     <div className="app">
+
         <form onSubmit={handleSubmit}>
-            <h1> A Jugar</h1>
+        <div className="logo">
+            <img src={logo} className="gyl"></img>
+        </div>
             {input.map((input)=>(
               <FormInput 
               key={input.id} {...input} 
-              value={values[input.name]}
+              value={form[input.name]}
               onChange={onChange}/>
 
             ))}
-        <button>Empezar</button>
+        <button className="button" type="submit">Empezar</button>
 
         </form>
   
