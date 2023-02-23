@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import '../css/ruleta.css';
-import logoRboto from '../Assets/robot.png';
-import logoGyl from '../Assets/logoGyl.png';
+
 
 //import sonido from '../Assets/rule.mp3';
 
