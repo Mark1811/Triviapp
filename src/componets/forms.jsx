@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import '../css/forms.css';
 import FormInput from '../componets/FormImput';
 import logo from '../Assets/img/G&L Blanco.png';
-
+import { useNavigate } from 'react-router-dom';
 
 const Forms=() =>{
-
+    let navegar = useNavigate()
    const [ form, setForm] = useState ({
        edad:"",
        nombre:"",
@@ -21,7 +21,7 @@ const Forms=() =>{
            placeholder: "Edad",
            errorMessage:" Deberia incluir solo números",
            label: "Edad",
-           pattern: "^[0-2]+$",
+           pattern: "^[0-90]+$",
            required:true,
 
        },
@@ -60,6 +60,7 @@ const Forms=() =>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         addUser(form);
+        navegar('/pregunta');
     };
     const onChange =(e)=> {
       setForm({...form,[e.target.name]: e.target.value});
@@ -76,6 +77,12 @@ const Forms=() =>{
         .then(res => res.json())
       };
 
+     const OnclikAddUser= ()=>{
+        addUser(form);
+        navegar('/pregunta');
+     }
+
+
     return (
     <div className="app">
            <img className="logoModal" src={logo}/>
@@ -89,7 +96,7 @@ const Forms=() =>{
               onChange={onChange}/>
 
             ))}
-           <button className="botonEmpezar" type="submit">Empezar</button>
+           <button  type="submit" className="botonEmpezar" >Empezar</button>
         </form>
      
     </div>

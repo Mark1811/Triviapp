@@ -1,9 +1,9 @@
 .mainbox{
     position: absolute;
-    width: 300px;
-    height: 300px;
-    left: 56rem;
-    top: 15rem;
+    width: 250px;
+    height: 250px;
+    left: 62rem;
+    top: 20rem;
 }
 
 .mainbox:after{
@@ -99,8 +99,8 @@ span{
 
 .spin{
     position: absolute;
-    top:30%;
-    left: 76.5%;
+    top:41%;
+    left: 81%;
     transform: translate(-50%, -50%);
     width: 98px;
     height: 60px;
@@ -135,8 +135,8 @@ audio{
 
 .base{
     position: relative;
-    left: 61rem;
-    top: 33rem;
+    left: 64rem;
+    top: 18rem;
     width: 10%;
     height: 80px;
     clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0 100%);

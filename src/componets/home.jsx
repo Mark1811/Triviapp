@@ -3,13 +3,14 @@ import robot from '../Assets/img/Robotino 1.png';
 import gyl from '../Assets/img/G&L Blanco.png';
 import mensaje from '../Assets/img/Mensaje.png';
 import '../css/home.css';
-import Forms from "../componets/Forms";
+import Forms from "../componets/forms";
+
 
 const Home=() =>{
 
   const[modal,setModal] = useState(false);
   const[Home, setHome] = useState(true);
-
+  
   const openModal =()=>{
     setModal(true);
     setHome(false);

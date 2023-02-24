@@ -4,7 +4,7 @@ import '../css/ruleta.css';
 
 //import sonido from '../Assets/rule.mp3';
 
-function Ruleta(){
+function Ruleta({siguientePregunta}){
     
     const [openModal, setModal] = useState(false);
     
@@ -62,11 +62,12 @@ function Ruleta(){
         element.classList.remove("animate");
          
         setTimeout(function(){
+            siguientePregunta();
             element.classList.add("animate");
         },5000);
          
         setTimeout(function(){
-           setModal(selectedItem,true);
+            
         },5500);
     
         setTimeout(function(){
