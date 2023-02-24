@@ -8,7 +8,7 @@ const Index = () =>{
        
     return(
         <div>
-            <Home/>
+            <Forms/>
         </div>
     )   
 }
