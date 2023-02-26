@@ -1,87 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { ProgressBar, Step } from "react-step-progress-bar";
 import "react-step-progress-bar/styles.css";
 import Ruleta from '../componets/ruleta';
+import { PreguntaContext, PreguntaContextProvider } from "../context/PreguntaContext";
+
+export default ()=>
+<PreguntaContextProvider>
+  <Preguntas></Preguntas>
+</PreguntaContextProvider>
 
 
-
-const Preguntas = () => {
-  const [index, setIndex] = useState(0);
-  const [porcentaje, setPorcentaje] = useState(0);
-  const [preguntas, setPreguntas] = useState([]);
-  const [respuestas, setRespuestas] = useState([]);
-  const [respondido, setRespondido] = useState(false);
-  const [colorRespuesta, setcolorRespuesta] = useState("");
-  const [sel, setSel] = useState(false);
-  const [openRobot,setOpenRobot] = useState([]);
-
-  const resetearJuego = () => {
-    setRespondido(false);
-    setPorcentaje(0);
-    setPreguntas([]);
-    setRespuestas([]);
-  };
-
-  const siguientePregunta = () => {
-    if (index < 4) {
-        setIndex(index + 1);
-        setRespondido(false);
-        setSel(false);
-      return;
-    }
-    resetearJuego();
-  };
-
-  const definirCorrecta = (e) => {
-    if (respondido) {
-      return;
-    }
-    setRespondido(true);
-    const opcionSeleccionada = e.target.innerHTML;
-    const preguntaActual = preguntas[index];
-    const respuesta =
-      opcionSeleccionada === preguntaActual.opcionCorrecta
-        ? "Correcto"
-        : "Incorrecto";
-    setRespuestas([...respuestas, respuesta]);
-    setSel(true);
-    setOpenRobot(respuesta);
-  };
-
-  useEffect(() => {
-    const url = "http://localhost:8080/api/juego/preguntas";
-    const peticion = fetch(url);
-    peticion
-      .then((datos) => datos.json())
-      .then((lectura) => {
-        setPreguntas(lectura);
-      });
-  }, []);
-
-  const preguntasBack={
+function Preguntas (){
+   const {index,preguntas,definirCorrecta,porcentaje} = useContext(PreguntaContext);
+   
+   const preguntasBack={
     categoria:"",
   }
+   setTimeout(()=>{
+    preguntasBack.categoria = preguntas[index]?.categoria;
+    const categoria = document.getElementById('categoria');
+    categoria.innerHTML = preguntasBack.categoria;
+   },1500)
 
-  setTimeout(()=>{
-   preguntasBack.categoria = preguntas[index]?.categoria;
-   const categoria = document.getElementById('categoria');
-   categoria.innerHTML = preguntasBack.categoria;
-  },2000)
 
-  useEffect(() => {
-    const numCorrectas = respuestas.filter(
-      (respuesta) => respuesta === "Correcto"
-    ).length;
-    const porcentajeCalculado = (numCorrectas / 5) * 100;
-    setPorcentaje(porcentajeCalculado);
-  }, [respuestas]);
-
-   console.log(index)
   return (
     <div className="m-5 bg-transparent">
       <div className="text-center">
         <h1 id="categoria" className="capitalize text-xl text-white font-bold bg-[#0958b7]">
-       
+            
         </h1>
         <h2 className="my-3">{preguntas[index]?.descripcion}</h2>
         <div className="text-white">
@@ -168,8 +114,7 @@ const Preguntas = () => {
           </Step>
         </ProgressBar>
       </div>
-      <Ruleta index={index} openRobot={openRobot} sel={sel}  categoria={preguntas[index]?.categoria} siguientePregunta={siguientePregunta} />
+      <Ruleta/>
     </div>
   );
 };
-export default Preguntas;

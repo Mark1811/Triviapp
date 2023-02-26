@@ -1,14 +1,15 @@
-import React,{ useState} from 'react';
+import React,{ useContext, useState} from 'react';
 import '../css/ruleta.css';
 import Robot from "./Robot";
-
+import { PreguntaContext } from "../context/PreguntaContext";
 
 
 
 //import sonido from '../Assets/rule.mp3';
 
-function Ruleta({siguientePregunta,categoria,sel,openRobot, index}){
-    
+function Ruleta(){
+    const {index,sel,siguientePregunta,openRobot,preguntas} = useContext(PreguntaContext);
+
     const ele = document.getElementById("girar");
     const elemento = document.getElementById("Rob");
     const [openModal, setModal] = useState(false);
@@ -45,8 +46,9 @@ function Ruleta({siguientePregunta,categoria,sel,openRobot, index}){
         ele.style.visibility="hidden";
         let selectedItem = "";
         if(index === 3){
-            ele.innerHTML="Resultado";
-            
+            ele.innerHTML="Finalizar";
+            ele.style.backgroundImage= "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);"
+    
         }
        
     
@@ -78,18 +80,13 @@ function Ruleta({siguientePregunta,categoria,sel,openRobot, index}){
         setTimeout(function(){
            element.classList.add("animate");
           setModal(true);
-      
           siguientePregunta();
         },3000);
-         
-        setTimeout(function(){
-           
-        },5500);
     
         setTimeout(function(){
             box.style.setProperty("transition", "initial");
             box.style.transform = "rotate(90deg)";
-        }, 6000);
+        }, 4000);
         
     }
      
@@ -119,7 +116,7 @@ function Ruleta({siguientePregunta,categoria,sel,openRobot, index}){
              { openModal && (
             <div className='modal'>
                 <div className='modalDentro'>
-                  <h2>{categoria}</h2>
+                  <h2>{preguntas[index]?.categoria}</h2>
                   <button onClick={onClickButtonCancel}>Responder</button> 
                 </div>
             </div>

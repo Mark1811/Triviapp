@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import '../css/forms.css';
 import FormInput from '../componets/FormIput';
 import logo from '../Assets/img/G&L Blanco.png';
-import { useNavigate } from 'react-router-dom';
+
 
 const Forms=() =>{
-    let navegar = useNavigate()
+    
     const usuario ={
         edad:null,
         nombre:null,
@@ -13,7 +13,7 @@ const Forms=() =>{
         mail:null,
     }
    const [ form, setForm] = useState (usuario);
-   console.log(form)
+
    const input =[
        {
            id:1,
@@ -61,7 +61,7 @@ const Forms=() =>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         addUser(form);
-        navegar('/pregunta');
+      
     };
     const onChange =(e)=> {
       setForm({...form,[e.target.name]: e.target.value});
@@ -78,10 +78,7 @@ const Forms=() =>{
         .then(res => res.json())
       };
 
-     const OnclikAddUser= ()=>{
-        addUser(form);
-        navegar('/pregunta');
-     }
+   
 
 
     return (
