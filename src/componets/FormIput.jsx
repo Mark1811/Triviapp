@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React,{useState} from 'react';
 import '../css/formInput.css';
 
 const  FormInput =(props)=>{
@@ -13,7 +13,6 @@ const  FormInput =(props)=>{
 
      return (
          <div className="formInput">
-            
              <label>{label}</label>
              <input {...inputProps} onChange={onChange}
              onBlur={handleFocus}
@@ -21,6 +20,6 @@ const  FormInput =(props)=>{
              /> 
               <span>{errorMessage}</span>
          </div>
-     )
- }
- export default FormInput
+     );
+ };
+ export default FormInput;

@@ -34,8 +34,8 @@ return(
       )
       
       }
-        {
-          modal &&(
+        {/*
+          (
            <div>
             <div className="containerMsj2">
                <img className="mensaje2" src={mensaje}/>
@@ -45,7 +45,7 @@ return(
             <Forms/>
             </div> 
           )
-        }
+          */}
     </div>
 );
 

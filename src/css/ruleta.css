@@ -1,13 +1,11 @@
 .mainbox{
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    left: 62rem;
-    top: 20rem;
+    position: relative;
+    width: 200px;
+    height: 200px;
 }
 
 .mainbox:after{
-    position: absolute;
+    position: relative;
     content: " ";
     width: 100%;
     height: 100%;
@@ -87,6 +85,7 @@ span{
     transform: rotate(180deg);
     text-align: center;
     color: white;
+   
 }
 .box .span4 h5{
     position: absolute;
@@ -99,8 +98,8 @@ span{
 
 .spin{
     position: absolute;
-    top:41%;
-    left: 81%;
+    left:100px;
+    bottom: 185px;
     transform: translate(-50%, -50%);
     width: 98px;
     height: 60px;
@@ -108,11 +107,9 @@ span{
     border: 1px solid white;
     background: rgb(19, 92, 202);
     color: aliceblue;
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: 22px;
-    font-size: 17px;
+    font-size: 18px;
     cursor: pointer;
-    z-index: 1000;
+     z-index: 2;
 }
 .spin:active{
     width: 95px;
@@ -133,17 +130,7 @@ audio{
     }
 }
 
-.base{
-    position: relative;
-    left: 64rem;
-    top: 18rem;
-    width: 10%;
-    height: 80px;
-    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0 100%);
-    background-color: rgb(56, 56, 82);
-    border-radius: 15px;
-    border: solid 1px black;
-}
+
 .centro{
     position: absolute;
     top:50%;
@@ -156,7 +143,6 @@ audio{
     background: rgb(255, 255, 255);
     color: aliceblue;
     font-family:Arial, Helvetica, sans-serif;
-    
     font-weight: 22px;
     font-size: 17px;
     
@@ -209,4 +195,16 @@ audio{
     border-radius:10px;
     color: #ffffff;
     background-color: blue;
+}
+#Rob{
+    opacity: 0;
+}
+
+.container{
+    max-width: 100%;
+    display:grid;
+   justify-items: right;
+   padding-right: 20px;
+   padding-top: 110px;
+    border: solid 1px black;
 }

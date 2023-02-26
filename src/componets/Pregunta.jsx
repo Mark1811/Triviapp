@@ -1,26 +1,42 @@
 import React, { useEffect, useState } from "react";
+import { ProgressBar, Step } from "react-step-progress-bar";
+import "react-step-progress-bar/styles.css";
 import Ruleta from '../componets/ruleta';
+
+
 
 const Preguntas = () => {
   const [index, setIndex] = useState(0);
   const [porcentaje, setPorcentaje] = useState(0);
   const [preguntas, setPreguntas] = useState([]);
   const [respuestas, setRespuestas] = useState([]);
+  const [respondido, setRespondido] = useState(false);
+  const [colorRespuesta, setcolorRespuesta] = useState("");
+  const [sel, setSel] = useState(false);
+  const [openRobot,setOpenRobot] = useState([]);
 
-  const siguientePregunta = () => {
-    if (index < 4) {
-      setTimeout(() => {
-        setIndex(index + 1);
-      }, 1000);
-
-      return;
-    }
+  const resetearJuego = () => {
+    setRespondido(false);
     setPorcentaje(0);
     setPreguntas([]);
     setRespuestas([]);
   };
 
+  const siguientePregunta = () => {
+    if (index < 4) {
+        setIndex(index + 1);
+        setRespondido(false);
+        setSel(false);
+      return;
+    }
+    resetearJuego();
+  };
+
   const definirCorrecta = (e) => {
+    if (respondido) {
+      return;
+    }
+    setRespondido(true);
     const opcionSeleccionada = e.target.innerHTML;
     const preguntaActual = preguntas[index];
     const respuesta =
@@ -28,8 +44,8 @@ const Preguntas = () => {
         ? "Correcto"
         : "Incorrecto";
     setRespuestas([...respuestas, respuesta]);
-    console.log(respuestas);
-    //siguientePregunta();
+    setSel(true);
+    setOpenRobot(respuesta);
   };
 
   useEffect(() => {
@@ -42,6 +58,16 @@ const Preguntas = () => {
       });
   }, []);
 
+  const preguntasBack={
+    categoria:"",
+  }
+
+  setTimeout(()=>{
+   preguntasBack.categoria = preguntas[index]?.categoria;
+   const categoria = document.getElementById('categoria');
+   categoria.innerHTML = preguntasBack.categoria;
+  },2000)
+
   useEffect(() => {
     const numCorrectas = respuestas.filter(
       (respuesta) => respuesta === "Correcto"
@@ -50,55 +76,100 @@ const Preguntas = () => {
     setPorcentaje(porcentajeCalculado);
   }, [respuestas]);
 
+   console.log(index)
   return (
-    <div className="m-5 border">
+    <div className="m-5 bg-transparent">
       <div className="text-center">
-        <h1 className="capitalize text-xl text-white bg-cyan-900">
-          {preguntas[index]?.categoria}
+        <h1 id="categoria" className="capitalize text-xl text-white font-bold bg-[#0958b7]">
+       
         </h1>
-        <h2>{preguntas[index]?.descripcion}</h2>
-        <div className="font-bold text-white">
+        <h2 className="my-3">{preguntas[index]?.descripcion}</h2>
+        <div className="text-white">
           <h3
-            className="bg-cyan-600 hover:bg-cyan-700 transition-colors my-1 mx-5 cursor-pointer"
+            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-3 mx-5 cursor-pointer"
             onClick={definirCorrecta}
           >
             {preguntas[index]?.opcionA}
           </h3>
           <h3
-            className="bg-cyan-600 hover:bg-cyan-700 transition-colors my-1 mx-5 cursor-pointer"
+            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-3 mx-5 cursor-pointer"
             onClick={definirCorrecta}
           >
             {preguntas[index]?.opcionB}
           </h3>
           <h3
-            className="bg-cyan-600 hover:bg-cyan-700 transition-colors my-1 mx-5 cursor-pointer"
+            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-3 mx-5 cursor-pointer"
             onClick={definirCorrecta}
           >
             {preguntas[index]?.opcionC}
           </h3>
           <h3
-            className="bg-cyan-600 hover:bg-cyan-700 transition-colors my-1 mx-5 cursor-pointer"
+            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-3 mx-5 cursor-pointer"
             onClick={definirCorrecta}
           >
             {preguntas[index]?.opcionD}
           </h3>
-          {/*
-          <h3
-            className="bg-green-600 hover:bg-green-700 transition-colors my-1 mx-5 cursor-pointer"
-            onClick={siguientePregunta}
-          >
-            Siguiente
-          </h3>
-  */}
+          
         </div>
       </div>
-      <h1 className="text-center">      <progress value={porcentaje} max="100">
-        <span className="font-black">{porcentaje}% completado</span>
-      </progress></h1>
-      <h1 className="text-right">Pregunta {index + 1} / 5</h1>
-       <Ruleta siguientePregunta={siguientePregunta}/>
+      <div className="progress-bar-container mx-10 text-xs text-white bg-gray-800">
+        <ProgressBar
+          percent={porcentaje}
+          filledBackground="linear-gradient(to right, #184684, #0150bb)"
+          className="h-24"
+        >
+          <Step>
+            {({ accomplished }) => (
+              <div className="progress-step">
+                {accomplished ? <i className="fas fa-check"></i> : null}
+                <span>0%</span>
+              </div>
+            )}
+          </Step>
+          <Step>
+            {({ accomplished }) => (
+              <div className="progress-step">
+                {accomplished ? <i className="fas fa-check"></i> : null}
+                <span>20%</span>
+              </div>
+            )}
+          </Step>
+          <Step>
+            {({ accomplished }) => (
+              <div className="progress-step">
+                {accomplished ? <i className="fas fa-check"></i> : null}
+                <span>40%</span>
+              </div>
+            )}
+          </Step>
+          <Step>
+            {({ accomplished }) => (
+              <div className="progress-step">
+                {accomplished ? <i className="fas fa-check"></i> : null}
+                <span>60%</span>
+              </div>
+            )}
+          </Step>
+          <Step>
+            {({ accomplished }) => (
+              <div className="progress-step">
+                {accomplished ? <i className="fas fa-check"></i> : null}
+                <span>80%</span>
+              </div>
+            )}
+          </Step>
+          <Step>
+            {({ accomplished }) => (
+              <div className="progress-step">
+                {accomplished ? <i className="fas fa-check"></i> : null}
+                <span>100%</span>
+              </div>
+            )}
+          </Step>
+        </ProgressBar>
+      </div>
+      <Ruleta index={index} openRobot={openRobot} sel={sel}  categoria={preguntas[index]?.categoria} siguientePregunta={siguientePregunta} />
     </div>
   );
 };
-
 export default Preguntas;

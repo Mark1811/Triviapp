@@ -1,20 +1,27 @@
-import React,{useState} from 'react';
+import React,{ useState} from 'react';
 import '../css/ruleta.css';
+import Robot from "./Robot";
+
+
 
 
 //import sonido from '../Assets/rule.mp3';
 
-function Ruleta({siguientePregunta}){
+function Ruleta({siguientePregunta,categoria,sel,openRobot, index}){
     
+    const ele = document.getElementById("girar");
+    const elemento = document.getElementById("Rob");
     const [openModal, setModal] = useState(false);
+   
     
-    const onClickButtonCancel =()=>{
-        setModal(false);
-      }
-     
+    const onClickButtonCancel =() =>{
+        setModal(false)  
+        elemento.style.opacity="0";
+    }
+      
     function shuffle(array){
        var currentIndex = array.length, randomIndex;
-
+     
        while(0 !== currentIndex){
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
@@ -28,14 +35,21 @@ function Ruleta({siguientePregunta}){
     }
     //let sound = new Audio();
     //sound.src = sonido
-
+       
 
     function spin(){
        // sound.play();
+     
         const box = document.getElementById("box");
         const element = document.getElementById("mainbox");
+        ele.style.visibility="hidden";
         let selectedItem = "";
-         
+        if(index === 3){
+            ele.innerHTML="Resultado";
+            
+        }
+       
+    
         let TC = shuffle([1890,2250,2610]);
         let GE = shuffle([1850,2210,2570]);
         let MA = shuffle([1770,2130,2490]);
@@ -57,17 +71,19 @@ function Ruleta({siguientePregunta}){
         if(CG.includes(results[0])) selectedItem ="Conocimiento General";
 
         
-       box.style.setProperty("transition", "all ease 5s");
+       box.style.setProperty("transition", "all ease 3s");
         box.style.transform = "rotate(" + results[0] + "deg)";
         element.classList.remove("animate");
          
         setTimeout(function(){
-            siguientePregunta();
-            element.classList.add("animate");
-        },5000);
+           element.classList.add("animate");
+          setModal(true);
+      
+          siguientePregunta();
+        },3000);
          
         setTimeout(function(){
-            
+           
         },5500);
     
         setTimeout(function(){
@@ -76,16 +92,17 @@ function Ruleta({siguientePregunta}){
         }, 6000);
         
     }
-
+     
+    if(sel === true){
+        ele.style.visibility="visible";
+        elemento.style.opacity="1"
+    }
 
     return(
-    <div> 
-    {/*<img className='robot' src={logoRboto}/>
-       <img className='logoGyl'  src={logoGyl}/>  
-       */}
+    <div  className="container"> 
        
-       <button className='spin' onClick={spin}>GIRAR</button>
-            <div className='mainbox' id="mainbox">
+            <div className='mainbox ' id="mainbox">
+            <button id='girar' className='spin ' onClick={spin}>GIRAR</button>
              <div className='box' id='box'>
                 <div className='box1'>
                     <span className='font span1'><h5>G&L</h5></span>
@@ -97,16 +114,18 @@ function Ruleta({siguientePregunta}){
                 
              </div>           
             </div>
-        <div className='base'></div> 
+     
            
              { openModal && (
             <div className='modal'>
                 <div className='modalDentro'>
-                  <h2>{openModal}</h2>
+                  <h2>{categoria}</h2>
                   <button onClick={onClickButtonCancel}>Responder</button> 
                 </div>
             </div>
             )}
+
+              <div id='Rob'> <Robot  openRobot={openRobot} /></div>   
     </div>
     )
 }

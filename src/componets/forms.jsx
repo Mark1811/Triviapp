@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import '../css/forms.css';
-import FormInput from '../componets/FormImput';
+import FormInput from '../componets/FormIput';
 import logo from '../Assets/img/G&L Blanco.png';
 import { useNavigate } from 'react-router-dom';
 
 const Forms=() =>{
     let navegar = useNavigate()
-   const [ form, setForm] = useState ({
-       edad:"",
-       nombre:"",
-       telefono:"",
-       mail:"",
-
-   });
+    const usuario ={
+        edad:null,
+        nombre:null,
+        telefono:null,
+        mail:null,
+    }
+   const [ form, setForm] = useState (usuario);
+   console.log(form)
    const input =[
        {
            id:1,
