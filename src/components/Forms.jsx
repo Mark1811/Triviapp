@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import '../css/forms.css';
 import robotito from '../Assets/img/Robotino.png'
-import msm from '../Assets/img/Mensaje.png'
+import registrarse from '../Assets/img/registrarse.png'
 import FormInput from '../components/FormInput';
 import logo from '../Assets/img/G&L Blanco.png';
+import rul from '../Assets/img/Ruleta.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Form, NavLink } from "react-router-dom";
@@ -118,48 +119,50 @@ const Forms=() =>{
       };
 
     return (
-    <di>
+    <div className="forms">
 
-   
-
-        <div className="header">
-           
-           <img src={robotito} className="robotino"/>
-
-           <div className="mensaje">
-             <div className="wrapper"> 
-              <div className="bienvenido">
-              <img src={msm} className="myt" alt="mensaje" />
-              <div className="texto1"> <h1 >Registrate si querés!</h1></div>
-              
-              </div>
-           
-             </div>
-               
-           </div>
-           
-
-        </div>
-        <div className="app">
-
-        <form onSubmit={handleSubmit}>
+       
+       <div className="top-left"> <img src={robotito} className="robotino"/> 
+              <div className="top-left-msm">
+                    <img src={registrarse} className="myt" alt="mensaje" />
+              </div>    
+        <div className="container-logo">
         <div className="logo">
             <NavLink to= '/'>
                 <img src={logo} className="gyl"></img>
             </NavLink>
         </div>
-            {input.map((input)=>(
-              <FormInput 
-              key={input.id} {...input} 
-              value={form[input.name]}
-              onChange={onChange}/>
 
-            ))}
-            <>
-                <button className="button" type="submit">Girar</button>
-            </>
+        </div>
+        
+       </div>
+       
+        <div className="centered-form">
+            <div className="ontener-form">
+                     <form onSubmit={handleSubmit}>
+                        
+                        {input.map((input)=>(
+                            <FormInput 
+                            key={input.id} {...input} 
+                            value={form[input.name]}
+                            onChange={onChange}/>
 
-        </form>
+                        ))}
+                    </form>
+            </div>
+                       
+                <>
+                    <div className="jugar">
+                        
+                        <div className="rueda-boton">
+                            <div className="button-girar"> 
+                            <button className="button-rg" type="submit">Girar</button> 
+                            </div>  
+                            <img src={rul} alt="ruleta" className="ruleta-registro"/>
+                        </div>    
+                    </div>   
+                </>
+                
         <ToastContainer
             position="bottom-right"
             autoClose={2000}
@@ -172,9 +175,11 @@ const Forms=() =>{
             pauseOnHover
             theme="light"
         />
-    </div>
 
-    </di> 
+                
+        </div>
+    
+    </div> 
     );
 };
 

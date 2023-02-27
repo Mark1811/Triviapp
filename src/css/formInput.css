@@ -1,12 +1,12 @@
  .formInput{
      display: flex;
      flex-direction: column;
-     width: 288px;
+     width: 400px;
  }
  
  input{
      padding: 15px;
-     margin: 10px 0px;
+     margin: 20px 0px;
      border-radius: 5px;
      background-color: #184684;
      border: 1px solid #184684;
