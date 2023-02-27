@@ -1,6 +1,6 @@
-import React,{ useContext, useState} from 'react';
+import React,{ useContext} from 'react';
 import '../css/ruleta.css';
-import Robot from "./Robot";
+
 import { PreguntaContext } from "../context/PreguntaContext";
 
 
@@ -8,16 +8,18 @@ import { PreguntaContext } from "../context/PreguntaContext";
 //import sonido from '../Assets/rule.mp3';
 
 function Ruleta(){
-    const {index,sel,siguientePregunta,openRobot,preguntas} = useContext(PreguntaContext);
+    const {index,sel,siguientePregunta,preguntas,openModal,setModal} = useContext(PreguntaContext);
 
     const ele = document.getElementById("girar");
-    const elemento = document.getElementById("Rob");
-    const [openModal, setModal] = useState(false);
+    const contRuleta = document.getElementById("container");
+    
+    
    
     
     const onClickButtonCancel =() =>{
         setModal(false)  
-        elemento.style.opacity="0";
+      //  elemento.style.opacity="0";
+        contRuleta.style.visibility="hidden";
     }
       
     function shuffle(array){
@@ -36,22 +38,20 @@ function Ruleta(){
     }
     //let sound = new Audio();
     //sound.src = sonido
-       
+   
 
     function spin(){
        // sound.play();
-     
         const box = document.getElementById("box");
         const element = document.getElementById("mainbox");
         ele.style.visibility="hidden";
-        let selectedItem = "";
+       
         if(index === 3){
             ele.innerHTML="Finalizar";
             ele.style.backgroundImage= "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);"
     
-        }
-       
-    
+        } 
+        let selectedItem = " ";
         let TC = shuffle([1890,2250,2610]);
         let GE = shuffle([1850,2210,2570]);
         let MA = shuffle([1770,2130,2490]);
@@ -66,11 +66,11 @@ function Ruleta(){
             CG[0],
         ]);
         
-        if(TC.includes(results[0])) selectedItem ="Tecnologia";
-        if(GE.includes(results[0])) selectedItem ="Geografia";     
-        if(MA.includes(results[0])) selectedItem ="Matematicas";
-        if(EN.includes(results[0])) selectedItem ="Entretenimiento";
-        if(CG.includes(results[0])) selectedItem ="Conocimiento General";
+        if(TC.includes(results[0])) selectedItem = "Tecnologia";
+        if(GE.includes(results[0])) selectedItem = "Geografia";     
+        if(MA.includes(results[0])) selectedItem = "Matematicas";
+        if(EN.includes(results[0])) selectedItem = "Entretenimiento";
+        if(CG.includes(results[0])) selectedItem = "Conocimiento General";
 
         
        box.style.setProperty("transition", "all ease 3s");
@@ -92,11 +92,12 @@ function Ruleta(){
      
     if(sel === true){
         ele.style.visibility="visible";
-        elemento.style.opacity="1"
+       // elemento.style.opacity="1"
+        contRuleta.style.visibility="visible";
     }
 
     return(
-    <div  className="container"> 
+    <div id='container'> 
        
             <div className='mainbox ' id="mainbox">
             <button id='girar' className='spin ' onClick={spin}>GIRAR</button>
@@ -122,7 +123,6 @@ function Ruleta(){
             </div>
             )}
 
-              <div id='Rob'> <Robot  openRobot={openRobot} /></div>   
     </div>
     )
 }

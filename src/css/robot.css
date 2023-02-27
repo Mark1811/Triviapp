@@ -5,3 +5,21 @@
 .robTriste{
     width: 10%;
 }
+#Rob{
+    position: absolute;
+   
+    z-index: 6;
+    opacity: 0;
+}
+
+#robF{
+    width: 26%;
+   
+}
+
+#robT{
+    position: absolute;
+    bottom: 0%;
+    width: 26%;
+   
+}

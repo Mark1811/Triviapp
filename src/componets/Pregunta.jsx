@@ -1,7 +1,9 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { ProgressBar, Step } from "react-step-progress-bar";
 import "react-step-progress-bar/styles.css";
+import '../css/Pregunta.css';
 import Ruleta from '../componets/ruleta';
+import Robot from "../componets/Robot";
 import { PreguntaContext, PreguntaContextProvider } from "../context/PreguntaContext";
 
 export default ()=>
@@ -11,7 +13,7 @@ export default ()=>
 
 
 function Preguntas (){
-   const {index,preguntas,definirCorrecta,porcentaje} = useContext(PreguntaContext);
+   const {index,preguntas,definirCorrecta,porcentaje, referencias,solucion} = useContext(PreguntaContext);
    
    const preguntasBack={
     categoria:"",
@@ -23,52 +25,64 @@ function Preguntas (){
    },1500)
 
 
-  return (
-    <div className="m-5 bg-transparent">
-      <div className="text-center">
-        <h1 id="categoria" className="capitalize text-xl text-white font-bold bg-[#0958b7]">
-            
+   return (
+    <div className="preguntaConetenedor">
+      
+      <div > <Robot /></div>   
+      <div className="cont-1">
+        <h1 className="titulo">
+          {preguntas[index]?.categoria}
         </h1>
-        <h2 className="my-3">{preguntas[index]?.descripcion}</h2>
-        <div className="text-white">
+        <h2 className="descrip">{preguntas[index]?.descripcion}</h2>
+        <h2 className="my-3 text-white hidden" ref={solucion}>
+          Respuesta correcta: {preguntas[index]?.opcionCorrecta}
+        </h2>
+
+        <div className="text-white text-xl">
           <h3
-            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-3 mx-5 cursor-pointer"
+            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
+            ref={referencias[0]}
           >
             {preguntas[index]?.opcionA}
           </h3>
           <h3
-            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-3 mx-5 cursor-pointer"
+            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
+            ref={referencias[1]}
           >
             {preguntas[index]?.opcionB}
           </h3>
           <h3
-            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-3 mx-5 cursor-pointer"
+            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
+            ref={referencias[2]}
           >
             {preguntas[index]?.opcionC}
           </h3>
           <h3
-            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-3 mx-5 cursor-pointer"
+            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
+            ref={referencias[3]}
           >
             {preguntas[index]?.opcionD}
           </h3>
           
         </div>
       </div>
-      <div className="progress-bar-container mx-10 text-xs text-white bg-gray-800">
+      <div className="porcen">
         <ProgressBar
           percent={porcentaje}
+          unfilledBackground="rgba(0, 0, 255, 0.2)"
           filledBackground="linear-gradient(to right, #184684, #0150bb)"
           className="h-24"
+          height={35}
+          text="Puntaje"
         >
           <Step>
             {({ accomplished }) => (
               <div className="progress-step">
                 {accomplished ? <i className="fas fa-check"></i> : null}
-                <span>0%</span>
               </div>
             )}
           </Step>
@@ -76,7 +90,6 @@ function Preguntas (){
             {({ accomplished }) => (
               <div className="progress-step">
                 {accomplished ? <i className="fas fa-check"></i> : null}
-                <span>20%</span>
               </div>
             )}
           </Step>
@@ -84,7 +97,6 @@ function Preguntas (){
             {({ accomplished }) => (
               <div className="progress-step">
                 {accomplished ? <i className="fas fa-check"></i> : null}
-                <span>40%</span>
               </div>
             )}
           </Step>
@@ -92,7 +104,6 @@ function Preguntas (){
             {({ accomplished }) => (
               <div className="progress-step">
                 {accomplished ? <i className="fas fa-check"></i> : null}
-                <span>60%</span>
               </div>
             )}
           </Step>
@@ -100,7 +111,6 @@ function Preguntas (){
             {({ accomplished }) => (
               <div className="progress-step">
                 {accomplished ? <i className="fas fa-check"></i> : null}
-                <span>80%</span>
               </div>
             )}
           </Step>
@@ -108,13 +118,13 @@ function Preguntas (){
             {({ accomplished }) => (
               <div className="progress-step">
                 {accomplished ? <i className="fas fa-check"></i> : null}
-                <span>100%</span>
+                <span>{porcentaje}%</span>
               </div>
             )}
           </Step>
         </ProgressBar>
       </div>
-      <Ruleta/>
+    <Ruleta/>
     </div>
   );
 };

@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import '../css/forms.css';
 import FormInput from '../componets/FormIput';
 import logo from '../Assets/img/G&L Blanco.png';
+import robot from '../Assets/img/Robotino 1.png';
+import mensaje from '../Assets/img/MensajeyTexto.png';
+import { useNavigate } from "react-router";
 
 
 const Forms=() =>{
-    
+    let navegar = useNavigate();
     const usuario ={
         edad:null,
         nombre:null,
@@ -23,7 +26,7 @@ const Forms=() =>{
            errorMessage:" Deberia incluir solo números",
            label: "Edad",
            pattern: "^[0-90]+$",
-           required:true,
+       
 
        },
        {
@@ -34,7 +37,7 @@ const Forms=() =>{
         errorMessage:" Deberia tener 3-16 caracteres y no deberia incluir ningun tipo de caracteres!",
         label: "Nombre",
         pattern: "^[A-Za-z0-9]{3,16}$",
-        required:true,
+       
     },
     {
         id:3,
@@ -44,7 +47,7 @@ const Forms=() =>{
         errorMessage:"Deberia incluir solo números ",
         label: "Telefono",
         pattern: "^[0-8]+$",
-        required:true,
+       
 
     },
     {
@@ -54,7 +57,7 @@ const Forms=() =>{
         placeholder: "Email",
         errorMessage:"Deberia ser una dirección de correo electronico válida ",
         label: "Email",
-        required:true,
+        
 
     },
    ];
@@ -78,11 +81,16 @@ const Forms=() =>{
         .then(res => res.json())
       };
 
-   
-
-
     return (
     <div className="app">
+      
+          <div className="containerRobotino2">
+              <div>
+                 <img className="mensaje3"  src={mensaje}/>
+                 <img className="robot3" src={robot}/>
+               </div>
+          </div>
+ {/*-------------------------------------------------*/ }
            <img className="logoModal" src={logo}/>
         <form onSubmit={handleSubmit}>
            
@@ -94,9 +102,10 @@ const Forms=() =>{
               onChange={onChange}/>
 
             ))}
-           <button  type="submit" className="botonEmpezar" >Empezar</button>
+           <button onClick={()=>{navegar('/pregunta')}} type="submit" className="botonEmpezar" >Empezar</button>
         </form>
      
+        
     </div>
     );
 };

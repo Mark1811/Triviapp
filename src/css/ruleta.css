@@ -196,15 +196,18 @@ audio{
     color: #ffffff;
     background-color: blue;
 }
-#Rob{
-    opacity: 0;
-}
 
-.container{
-    max-width: 100%;
-    display:grid;
+
+#container{
+  position: absolute;
+   max-width: 100%;
+   width: 90%;
+   display:grid;
    justify-items: right;
    padding-right: 20px;
    padding-top: 110px;
-    border: solid 1px black;
+   bottom: 65px;
+   visibility:hidden;
+ 
+  
 }

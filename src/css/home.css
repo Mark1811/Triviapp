@@ -55,7 +55,6 @@
     bottom: 85px;
     left: 22px;
     display:inline-block;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 19px;
@@ -71,29 +70,28 @@
     left: 50px;
     z-index: 3;
 }
-.robot2 img{
+.robot img{
     width: 200px;
     height: 250px;
 }
-.mensaje2{
+.mensaje{
     
     width: 200px;
     height: 200px;
     
 }
-.containerMsj2{
+.containerMsj{
     position: absolute;
     display: inline-block;
     left: 200px;
     top: 55px;
    z-index: 2;
 }
-.containerMsj2 h3{
+.containerMsj h3{
     position: absolute;
-    bottom: 70px;
-    left: 30px;
+    bottom: 85px;
+    left: 35px;
     display:inline-block;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 19px;
