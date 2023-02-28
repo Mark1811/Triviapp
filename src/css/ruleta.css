@@ -173,14 +173,15 @@ audio{
     display:grid;
     justify-content:center;
     align-items: center;
-    padding: 10px;
+    padding: 30px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 12%;
     width: 25%;
-    height: 15rem;
+    height: 18rem;
     border-radius: 10%;
     border: solid 3px rgb(252, 245, 245);
-    background: linear-gradient(90deg, rgb(72, 170, 6) 0%, rgb(1, 255, 1) 100%);
+    background-image: url('../Assets/img/Fondo\ Solo.png');
+    background-size: 100% 100%;
 }
 .modal h2{
     display: block;
@@ -190,11 +191,18 @@ audio{
    
 }
 .modal button{
-     border: solid 1px black;
+    
     padding: 5px;
     border-radius:10px;
     color: #ffffff;
     background-color: blue;
+}
+.robotino4{
+    position: absolute;
+
+    left: 42%;
+    bottom: 65%;
+    width: 15%;
 }
 
 
@@ -208,6 +216,4 @@ audio{
    padding-top: 110px;
    bottom: 65px;
    visibility:hidden;
- 
-  
 }

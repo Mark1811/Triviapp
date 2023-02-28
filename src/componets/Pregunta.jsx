@@ -4,17 +4,16 @@ import "react-step-progress-bar/styles.css";
 import '../css/Pregunta.css';
 import Ruleta from '../componets/ruleta';
 import Robot from "../componets/Robot";
-import { PreguntaContext, PreguntaContextProvider } from "../context/PreguntaContext";
+import { PreguntaContext} from "../context/PreguntaContext";
 
-export default ()=>
-<PreguntaContextProvider>
-  <Preguntas></Preguntas>
-</PreguntaContextProvider>
+
 
 
 function Preguntas (){
    const {index,preguntas,definirCorrecta,porcentaje, referencias,solucion} = useContext(PreguntaContext);
-   
+ 
+
+
    const preguntasBack={
     categoria:"",
   }
@@ -24,7 +23,7 @@ function Preguntas (){
     categoria.innerHTML = preguntasBack.categoria;
    },1500)
 
-
+  console.log(porcentaje)
    return (
     <div className="preguntaConetenedor">
       
@@ -128,3 +127,5 @@ function Preguntas (){
     </div>
   );
 };
+
+export default Preguntas;

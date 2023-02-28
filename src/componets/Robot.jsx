@@ -1,6 +1,7 @@
 import React,{useContext} from 'react';
 import robotinoFeliz from '../Assets/img/RobotinoFeliz.png';
 import robotinoTriste from '../Assets/img/RobotinoTriste.png';
+import robotinoPensativo from '../Assets/img/RobotinoPensativo.png';
 import { PreguntaContext } from "../context/PreguntaContext";
 import '../css/robot.css';
 
@@ -9,13 +10,16 @@ const  Robot =()=>{
     
     const elemento = document.getElementById("Rob");
         
+
         if(sel === true){
             elemento.style.opacity="1";
+           
         }
         
         if(openModal === true){
             elemento.style.opacity="0"
         }
+    
       
 
        if(openRobot === "Correcto"){
@@ -29,17 +33,22 @@ const  Robot =()=>{
         ele.style.visibility="hidden";   
         const ele2 = document.getElementById("robT");
         ele2.style.visibility="visible"; 
-        
+       
        }
 
 
       
 
      return (
-         <div id='Rob'>
-              <img id='robF' className='robFeliz' src={robotinoFeliz}/>
-              <img id='robT' className='robTriste' src={robotinoTriste}/>
+        <div>
+           <div id='Rob'>
+                <img id='robF' className='robFeliz' src={robotinoFeliz}/>
+                <img id='robT' className='robTriste' src={robotinoTriste}/>
+               
+           </div>
+           
          </div>
+        
      );
  };
  export default Robot; 

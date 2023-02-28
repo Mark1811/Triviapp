@@ -1,0 +1,88 @@
+.porcen2 {
+position: absolute;
+display: flex;
+justify-content: center;
+max-width: 100%;
+max-height: 100%;
+width: 100%;
+height: 150%;
+border: solid 2px rgb(202, 26, 26);
+
+}
+.resulDentro{
+ width: 90%;
+ display: flex;
+ justify-content: center;
+ padding-top: 100px;
+
+}
+
+.imgRobot{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  right: 70%;
+}
+.imgGyl{
+  position: absolute;
+  bottom: 450px;
+  width:180px;
+  height: 150px;
+  object-fit: cover;
+
+ 
+}
+.resulDentro h1{
+    position: absolute;
+    text-align: center;
+    justify-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    top: 35%;
+    height: 20%;
+    width: 30%;
+    color: #f5f5f5;
+}
+.hGracia{
+  position: absolute;
+  top: 65%;
+  
+  text-align: center;
+  justify-items: center;
+  font-size: 25px;
+  height: 20%;
+  width: 30%;
+  color: #f5f5f5;
+}
+.barra{
+    position: absolute;
+    top: 51%;
+    left: 35%;
+    width: 30%;
+    background-color: rgb(241, 241, 236);
+   border-radius: 10px;
+    border: solid 10px rgb(255, 255, 255);
+}
+.porceRe{
+  font-size: 30px;
+position: absolute;
+ bottom: 16px;
+ left: 15px;
+ color: #ffffff;
+}
+.btnHome{
+  position: absolute;
+    width: 18%;
+    height: 10%;
+    top: 80%;
+    border-radius: 40px;
+    font-size: 30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    color:#ffff;
+    background-color: rgba(7, 7, 129, 0.342);
+    cursor: pointer;
+}
+.btnHome:hover{
+  border: solid 1px beige;
+}

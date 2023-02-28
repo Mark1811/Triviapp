@@ -1,8 +1,8 @@
 import React,{ useContext} from 'react';
 import '../css/ruleta.css';
-
+import robotito4 from '../Assets/img/Robotino 1.png';
 import { PreguntaContext } from "../context/PreguntaContext";
-
+import {useNavigate } from 'react-router-dom';
 
 
 //import sonido from '../Assets/rule.mp3';
@@ -10,6 +10,7 @@ import { PreguntaContext } from "../context/PreguntaContext";
 function Ruleta(){
     const {index,sel,siguientePregunta,preguntas,openModal,setModal} = useContext(PreguntaContext);
 
+    let naveg = useNavigate();
     const ele = document.getElementById("girar");
     const contRuleta = document.getElementById("container");
     
@@ -46,11 +47,12 @@ function Ruleta(){
         const element = document.getElementById("mainbox");
         ele.style.visibility="hidden";
        
-        if(index === 3){
+        if(index === 2){
             ele.innerHTML="Finalizar";
             ele.style.backgroundImage= "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);"
-    
         } 
+         console.log(index);
+       
         let selectedItem = " ";
         let TC = shuffle([1890,2250,2610]);
         let GE = shuffle([1850,2210,2570]);
@@ -82,6 +84,12 @@ function Ruleta(){
           setModal(true);
           siguientePregunta();
         },3000);
+
+        if(index === 3){
+            setTimeout(function(){
+                 naveg('/resultado')
+               },1500);
+        }
     
         setTimeout(function(){
             box.style.setProperty("transition", "initial");
@@ -117,6 +125,7 @@ function Ruleta(){
              { openModal && (
             <div className='modal'>
                 <div className='modalDentro'>
+                   <img className='robotino4' src={robotito4}/> 
                   <h2>{preguntas[index]?.categoria}</h2>
                   <button onClick={onClickButtonCancel}>Responder</button> 
                 </div>

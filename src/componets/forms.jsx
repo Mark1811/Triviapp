@@ -3,7 +3,8 @@ import '../css/forms.css';
 import FormInput from '../componets/FormIput';
 import logo from '../Assets/img/G&L Blanco.png';
 import robot from '../Assets/img/Robotino 1.png';
-import mensaje from '../Assets/img/MensajeyTexto.png';
+import ruleta from '../Assets/img/Ruleta.png';
+import mensaje from '../Assets/img/registrarse.png';
 import { useNavigate } from "react-router";
 
 
@@ -46,7 +47,7 @@ const Forms=() =>{
         placeholder: "Telefono",
         errorMessage:"Deberia incluir solo números ",
         label: "Telefono",
-        pattern: "^[0-8]+$",
+        pattern:"[0-9]{0,13}",
        
 
     },
@@ -64,6 +65,7 @@ const Forms=() =>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         addUser(form);
+        navegar('/pregunta')
       
     };
     const onChange =(e)=> {
@@ -102,9 +104,12 @@ const Forms=() =>{
               onChange={onChange}/>
 
             ))}
-           <button onClick={()=>{navegar('/pregunta')}} type="submit" className="botonEmpezar" >Empezar</button>
+          
         </form>
-     
+               <div className="cont50">
+                 <button onClick={handleSubmit} type="submit" className="botonEmpezar" >Girar</button>
+                 <img className="rul23" src={ruleta}/>
+               </div>
         
     </div>
     );

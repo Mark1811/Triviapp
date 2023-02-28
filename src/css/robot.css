@@ -5,6 +5,10 @@
 .robTriste{
     width: 10%;
 }
+
+.robPens{
+    width: 10%;
+}
 #Rob{
     position: absolute;
    
@@ -21,5 +25,7 @@
     position: absolute;
     bottom: 0%;
     width: 26%;
-   
+}
+#RobPensa{
+    opacity: 1;
 }
