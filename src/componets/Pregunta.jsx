@@ -12,18 +12,6 @@ import { PreguntaContext} from "../context/PreguntaContext";
 function Preguntas (){
    const {index,preguntas,definirCorrecta,porcentaje, referencias,solucion} = useContext(PreguntaContext);
  
-
-
-   const preguntasBack={
-    categoria:"",
-  }
-   setTimeout(()=>{
-    preguntasBack.categoria = preguntas[index]?.categoria;
-    const categoria = document.getElementById('categoria');
-    categoria.innerHTML = preguntasBack.categoria;
-   },1500)
-
-  console.log(porcentaje)
    return (
     <div className="preguntaConetenedor">
       
@@ -126,6 +114,7 @@ function Preguntas (){
     <Ruleta/>
     </div>
   );
+  
 };
 
 export default Preguntas;

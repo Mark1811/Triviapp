@@ -11,10 +11,10 @@ import { useNavigate } from "react-router";
 const Forms=() =>{
     let navegar = useNavigate();
     const usuario ={
-        edad:null,
-        nombre:null,
-        telefono:null,
-        mail:null,
+        edad:"",
+        nombre:"",
+        telefono:"",
+        mail:"",
     }
    const [ form, setForm] = useState (usuario);
 
@@ -88,12 +88,12 @@ const Forms=() =>{
       
           <div className="containerRobotino2">
               <div>
-                 <img className="mensaje3"  src={mensaje}/>
-                 <img className="robot3" src={robot}/>
+                 <img alt="mensajeRobtino" className="mensaje3"  src={mensaje}/>
+                 <img alt="rbt" className="robot3" src={robot}/>
                </div>
           </div>
  {/*-------------------------------------------------*/ }
-           <img className="logoModal" src={logo}/>
+           <img alt="logoDeGyl" className="logoModal" src={logo}/>
         <form onSubmit={handleSubmit}>
            
             {
@@ -107,8 +107,8 @@ const Forms=() =>{
           
         </form>
                <div className="cont50">
-                 <button onClick={handleSubmit} type="submit" className="botonEmpezar" >Girar</button>
-                 <img className="rul23" src={ruleta}/>
+                 <button onClick={handleSubmit} className="botonEmpezar" >Girar</button>
+                 <img alt="ruletaGyl" className="rul23" src={ruleta}/>
                </div>
         
     </div>

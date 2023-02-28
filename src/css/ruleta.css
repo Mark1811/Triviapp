@@ -36,7 +36,7 @@ span{
 }
 .font{
     color: #ffffff;
-    font-size: 20px;
+    font-size: 15px;
 }
 .span1{
     clip-path: polygon(0 0, 0 100% , 50% 50%);
@@ -71,17 +71,18 @@ span{
 
 .box .span2 h5{
     position: absolute;
-    top: 18%;
-    right: 46%;
+    top: 15%;
+    right: 43%;
     transform: rotate(270deg);
     text-align: center;
     color: white;
+    
 }
 
 .box .span3 h5{
     position: absolute;
-    top: 45%;
-    right: 20%;
+    top: 43%;
+    right: 15%;
     transform: rotate(180deg);
     text-align: center;
     color: white;
@@ -89,8 +90,8 @@ span{
 }
 .box .span4 h5{
     position: absolute;
-    top: 70%;
-    right: 45%;
+    top: 72%;
+    right: 43%;
     transform: rotate(270deg);
     text-align: center;
     color: white;
@@ -179,8 +180,12 @@ audio{
     width: 25%;
     height: 18rem;
     border-radius: 10%;
-    border: solid 3px rgb(252, 245, 245);
-    background-image: url('../Assets/img/Fondo\ Solo.png');
+    border: solid 2px rgb(252, 245, 245);
+    background-color: #000ae9;
+background-image: linear-gradient(160deg, #000ae9 0%, #80a8d0 100%);
+
+
+
     background-size: 100% 100%;
 }
 .modal h2{

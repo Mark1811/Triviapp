@@ -3,8 +3,6 @@ import '../css/ruleta.css';
 import robotito4 from '../Assets/img/Robotino 1.png';
 import { PreguntaContext } from "../context/PreguntaContext";
 import {useNavigate } from 'react-router-dom';
-
-
 //import sonido from '../Assets/rule.mp3';
 
 function Ruleta(){
@@ -19,7 +17,6 @@ function Ruleta(){
     
     const onClickButtonCancel =() =>{
         setModal(false)  
-      //  elemento.style.opacity="0";
         contRuleta.style.visibility="hidden";
     }
       
@@ -51,7 +48,6 @@ function Ruleta(){
             ele.innerHTML="Finalizar";
             ele.style.backgroundImage= "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);"
         } 
-         console.log(index);
        
         let selectedItem = " ";
         let TC = shuffle([1890,2250,2610]);
@@ -100,7 +96,6 @@ function Ruleta(){
      
     if(sel === true){
         ele.style.visibility="visible";
-       // elemento.style.opacity="1"
         contRuleta.style.visibility="visible";
     }
 
@@ -125,7 +120,7 @@ function Ruleta(){
              { openModal && (
             <div className='modal'>
                 <div className='modalDentro'>
-                   <img className='robotino4' src={robotito4}/> 
+                   <img alt='robotino' className='robotino4' src={robotito4}/> 
                   <h2>{preguntas[index]?.categoria}</h2>
                   <button onClick={onClickButtonCancel}>Responder</button> 
                 </div>
