@@ -26,6 +26,16 @@
     bottom: 0%;
     width: 26%;
 }
-#RobPensa{
+
+#Pen{
+    position: absolute;
+    width: 26%;
     opacity: 1;
+    top: 13%;
+    left: 5.5%;
+  
+}
+
+.robPens{
+    width: 50%;
 }
