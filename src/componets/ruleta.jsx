@@ -3,7 +3,8 @@ import '../css/ruleta.css';
 import robotito4 from '../Assets/img/Robotino 1.png';
 import { PreguntaContext } from "../context/PreguntaContext";
 import {useNavigate } from 'react-router-dom';
-//import sonido from '../Assets/rule.mp3';
+import sonido from '../Assets/audio/rul4.mp3';
+import modalTrue from '../Assets/audio/modalTrue.mp3'
 
 function Ruleta(){
     const {index,sel,siguientePregunta,preguntas,openModal,setModal} = useContext(PreguntaContext);
@@ -12,12 +13,10 @@ function Ruleta(){
     const ele = document.getElementById("girar");
     const contRuleta = document.getElementById("container");
     
-    
-   
-    
     const onClickButtonCancel =() =>{
         setModal(false)  
         contRuleta.style.visibility="hidden";
+       
     }
       
     function shuffle(array){
@@ -34,12 +33,17 @@ function Ruleta(){
        }
        return array;
     }
-    //let sound = new Audio();
-    //sound.src = sonido
+    let sound = new Audio();
+    sound.src = sonido;
+    let mod = new Audio();
+    mod.src = modalTrue;
+   
    
 
     function spin(){
-       // sound.play();
+        sound.play();
+        mod.play();
+        mod.pause();
         const box = document.getElementById("box");
         const element = document.getElementById("mainbox");
         ele.style.visibility="hidden";
@@ -74,17 +78,21 @@ function Ruleta(){
        box.style.setProperty("transition", "all ease 3s");
         box.style.transform = "rotate(" + results[0] + "deg)";
         element.classList.remove("animate");
-         
+        
+            
+       
         setTimeout(function(){
-           element.classList.add("animate");
+          element.classList.add("animate");
           setModal(true);
           siguientePregunta();
-        },3000);
+          mod.play();
+        },2700);
 
+       
         if(index === 3){
             setTimeout(function(){
                  naveg('/resultado')
-               },1500);
+               },2000);
         }
     
         setTimeout(function(){
@@ -112,8 +120,10 @@ function Ruleta(){
                     <span className='font span4'><h5>G&L</h5></span> 
                     <span className='centro'></span>
                 </div>
-                
-             </div>           
+              
+             </div>
+             <div className='base'></div> 
+                  
             </div>
      
            
@@ -124,6 +134,8 @@ function Ruleta(){
                   <h2>{preguntas[index]?.categoria}</h2>
                   <button onClick={onClickButtonCancel}>Responder</button> 
                 </div>
+            
+
             </div>
             )}
 

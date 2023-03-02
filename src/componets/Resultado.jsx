@@ -7,17 +7,25 @@ import { ProgressBar, Step } from "react-step-progress-bar";
 import "react-step-progress-bar/styles.css";
 import {useNavigate } from 'react-router-dom';
 
+
 function Resultado (){
     const {porcentaje} = useContext(PreguntaContext);
+ 
+    
     let nav = useNavigate();
+    const refresh=()=>{
+      nav('/');
+      
+    }
+
      return (
     <div className="porcen2">
         <div className='resulDentro'>
-           <img className='imgRobot' src={robot}/>
-           <img className='imgGyl' src={gyl}/>
+           <img className='imgRobot' src={robot} alt="RobotGyl"/>
+           <img className='imgGyl' src={gyl} loading="lazy"alt='logoGyl'/>
            <h1>¡¡Felicitaciones!! <br></br> Tu porcentaje ha sido de</h1>
            <h2 className='hGracia'>Muchas Gracias Por Participar</h2>
-           <button onClick={()=>{nav('/')}} className='btnHome'>Home</button> 
+           <button onClick={refresh} className='btnHome'>Home</button> 
         </div>
       <div className='barra'>
         <ProgressBar
@@ -73,7 +81,7 @@ function Resultado (){
           </Step>
         </ProgressBar>
         </div>
-
+        
       </div>
      );
  };

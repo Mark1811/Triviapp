@@ -5,18 +5,29 @@ import mensaje from '../Assets/img/Mensaje.png';
 import '../css/home.css';
 import {useNavigate } from 'react-router-dom';
 
+
 const Home=() =>{
-let navegar = useNavigate();
+  
+  let navegar = useNavigate();
+ 
+   const refre =()=>{
+    navegar('/registro')
+
+   }
+
+   
+
 return(
     <div>
+
       <div> 
         <div className="containerMsj">
-           <img className="mensaje" src={mensaje}/>
+           <img className="mensaje" src={mensaje} />
            <h3>Bienvenido/a</h3>
          </div>
            <div className="robot"><img src={robot}/></div>
            <div className="gyl"><img src={gyl}/></div>
-           <button onClick={()=>{navegar('/registro')}}  className="buton">Empezar</button>
+           <button onClick={refre} className="buton" >Empezar</button>
        </div>
     </div>
 );

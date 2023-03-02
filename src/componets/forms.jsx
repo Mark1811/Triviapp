@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext} from "react";
 import '../css/forms.css';
 import FormInput from '../componets/FormIput';
 import logo from '../Assets/img/G&L Blanco.png';
@@ -6,17 +6,15 @@ import robot from '../Assets/img/Robotino 1.png';
 import ruleta from '../Assets/img/Ruleta.png';
 import mensaje from '../Assets/img/registrarse.png';
 import { useNavigate } from "react-router";
-
+import { PreguntaContext} from "../context/PreguntaContext";
 
 const Forms=() =>{
+    const{ form, setForm} = useContext(PreguntaContext);
     let navegar = useNavigate();
-    const usuario ={
-        edad:"",
-        nombre:"",
-        telefono:"",
-        mail:"",
-    }
-   const [ form, setForm] = useState (usuario);
+    
+ 
+
+   
 
    const input =[
        {
@@ -62,12 +60,14 @@ const Forms=() =>{
 
     },
    ];
-    const handleSubmit = (e)=>{
+
+    const handleSubmit =async (e)=>{
         e.preventDefault();
-        addUser(form);
+      await addUser(form);
         navegar('/pregunta')
-      
+        window.location.reload();
     };
+
     const onChange =(e)=> {
       setForm({...form,[e.target.name]: e.target.value});
     };
@@ -85,7 +85,7 @@ const Forms=() =>{
 
     return (
     <div className="app">
-      
+         
           <div className="containerRobotino2">
               <div>
                  <img alt="mensajeRobtino" className="mensaje3"  src={mensaje}/>
@@ -110,7 +110,7 @@ const Forms=() =>{
                  <button onClick={handleSubmit} className="botonEmpezar" >Girar</button>
                  <img alt="ruletaGyl" className="rul23" src={ruleta}/>
                </div>
-        
+              
     </div>
     );
 };

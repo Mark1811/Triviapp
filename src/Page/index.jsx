@@ -7,21 +7,22 @@ import {BrowserRouter as Router,  Routes, Route} from "react-router-dom";
 import {PreguntaContextProvider } from "../context/PreguntaContext";
 
 
+
 const Index = () =>{
        
     return(
+    
     <PreguntaContextProvider>
-    <Router>
-       <Routes>
-         <Route path='/' element={<Home/>}/>
-         <Route path='/registro' element={<Forms/>}/> 
-         <Route path='/pregunta' element={<Pregunta/>}/> 
-         <Route path='/resultado' element={<Resultado/>}/> 
-         
-       </Routes>
-    </Router>
+      <Router>
+         <Routes>
+           <Route path='/' element={<Home/>}/>
+           <Route path='/registro' element={<Forms/>}/> 
+           <Route path='/pregunta' element={<Pregunta/>}/> 
+           <Route path='/resultado' element={<Resultado/>}/> 
+         </Routes>
+      </Router>
     </PreguntaContextProvider> 
-   
+    
    
     )   
 }

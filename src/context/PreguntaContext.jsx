@@ -1,8 +1,13 @@
 import React,{createContext, useEffect, useState, useRef} from "react";
-
+import candy from '../Assets/audio/candy2.mp3';
+import errorSelection from '../Assets/audio/error.mp3'
 export const PreguntaContext = createContext();
-
 export function PreguntaContextProvider(props){
+  
+  let soundCandy = new Audio();
+  soundCandy.src = candy;
+  let errorSele = new Audio();
+  errorSele.src = errorSelection;
 
     const [index, setIndex] = useState(0);
     const [porcentaje, setPorcentaje] = useState(0);
@@ -14,9 +19,20 @@ export function PreguntaContextProvider(props){
     const [sel, setSel] = useState(false);
     const [openRobot,setOpenRobot] = useState([]);
     const [openModal, setModal] = useState();
-    
+    const [refre, setRefre] = useState(false);
+     
+    const usuario ={
+      edad:"",
+      nombre:"",
+      telefono:"",
+      mail:"",
+  }
+
+ const [ form, setForm] = useState (usuario);
+
 
     const resetearBackground = () => {
+      
       referencias.forEach((e) => {
         if (e.current.classList.contains("bg-green-600")) {
           e.current.classList.remove("bg-green-600");
@@ -39,9 +55,11 @@ export function PreguntaContextProvider(props){
         if (respuesta === "Incorrecto") {
           e.target.classList.remove("bg-[#0958b7]", "hover:bg-[#0c5fdd]");
           e.target.classList.add("bg-red-700/75");
+          errorSele.play();
         } else {
           e.target.classList.remove("bg-[#0958b7]", "hover:bg-[#0c5fdd]");
           e.target.classList.add("bg-green-600");
+          soundCandy.play();
         }
       };
     
@@ -75,16 +93,18 @@ export function PreguntaContextProvider(props){
         setOpenRobot(respuesta);
       };
     
-      useEffect(() => {
-        const url = "http://localhost:8080/api/juego/preguntas";
-        const peticion = fetch(url);
-        peticion
-          .then((datos) => datos.json())
-          .then((lectura) => {
-            setPreguntas(lectura);
-          });
-      }, []);
-    
+      
+      
+      const uri ="http://localhost:8080/api/juego/preguntas";
+      const GetPregunta = async () => {
+          const response = await fetch(uri)
+          const responseJson = await response.json()
+          setPreguntas(responseJson)
+        
+      }
+      useEffect(()=>{
+         GetPregunta();
+      },[])
       
     
       useEffect(() => {
@@ -107,6 +127,12 @@ export function PreguntaContextProvider(props){
         solucion,
         openModal,
         setModal,
+        GetPregunta,
+        refre, 
+        setRefre,
+        form, 
+        setForm,
+        candy,
        
        };
 

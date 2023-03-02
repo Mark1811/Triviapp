@@ -1,20 +1,35 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ProgressBar, Step } from "react-step-progress-bar";
 import "react-step-progress-bar/styles.css";
 import '../css/Pregunta.css';
 import Ruleta from '../componets/ruleta';
 import Robot from "../componets/Robot";
 import { PreguntaContext} from "../context/PreguntaContext";
-
-
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 function Preguntas (){
    const {index,preguntas,definirCorrecta,porcentaje, referencias,solucion} = useContext(PreguntaContext);
- 
+   const[loadin,setLoadin] = useState(false);
+   
+   useEffect(()=>{
+    setLoadin(true)
+    setTimeout(()=>{
+      setLoadin(false)
+    },2000)
+   },[])
+   
+
+
    return (
-    <div className="preguntaConetenedor">
-      
+   <div>
+  { loadin ?
+    (
+      <div className="spinner">  <ClipLoader loading={loadin} size={50} aria-label="Loading Spinner" /></div>
+  
+    )
+    :
+   ( <div className="preguntaConetenedor">
       <div > <Robot /></div>   
       <div className="cont-1">
         <h1 className="titulo">
@@ -29,6 +44,7 @@ function Preguntas (){
           <h3
             className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
+           
             ref={referencias[0]}
           >
             {preguntas[index]?.opcionA}
@@ -64,7 +80,7 @@ function Preguntas (){
           filledBackground="linear-gradient(to right, #184684, #0150bb)"
           className="h-24"
           height={35}
-          text="Puntaje"
+         
         >
           <Step>
             {({ accomplished }) => (
@@ -105,13 +121,17 @@ function Preguntas (){
             {({ accomplished }) => (
               <div className="progress-step">
                 {accomplished ? <i className="fas fa-check"></i> : null}
-                <span>{porcentaje}%</span>
+                <span className="porcePregunta">{porcentaje}%</span>
               </div>
             )}
           </Step>
         </ProgressBar>
       </div>
     <Ruleta/>
+    </div>
+    )
+  }
+    
     </div>
   );
   
