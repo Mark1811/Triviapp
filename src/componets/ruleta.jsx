@@ -45,10 +45,11 @@ function Ruleta(){
         mod.play();
         mod.pause();
         const box = document.getElementById("box");
+        const box1 = document.getElementById("box1");
         const element = document.getElementById("mainbox");
         ele.style.visibility="hidden";
        
-        if(index === 2){
+        if(index === 3){
             ele.innerHTML="Finalizar";
             ele.style.backgroundImage= "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);"
         } 
@@ -77,6 +78,8 @@ function Ruleta(){
         
        box.style.setProperty("transition", "all ease 3s");
         box.style.transform = "rotate(" + results[0] + "deg)";
+        box1.style.setProperty("transition", "all ease 3s");
+        box1.style.transform = "rotate(" + results[0] + "deg)";
         element.classList.remove("animate");
         
             
@@ -89,7 +92,7 @@ function Ruleta(){
         },2700);
 
        
-        if(index === 3){
+        if(index === 4){
             setTimeout(function(){
                  naveg('/resultado')
                },2000);
@@ -98,6 +101,8 @@ function Ruleta(){
         setTimeout(function(){
             box.style.setProperty("transition", "initial");
             box.style.transform = "rotate(90deg)";
+            box1.style.setProperty("transition", "initial");
+            box1.style.transform = "rotate(90deg)";
         }, 4000);
         
     }
@@ -113,14 +118,17 @@ function Ruleta(){
             <div className='mainbox ' id="mainbox">
             <button id='girar' className='spin ' onClick={spin}>GIRAR</button>
              <div className='box' id='box'>
-                <div className='box1'>
-                    <span className='font span1'><h5>G&L</h5></span>
-                    <span className='font span2'><h5>G&L</h5></span>
-                    <span className='font span3'><h5>G&L</h5></span>
-                    <span className='font span4'><h5>G&L</h5></span> 
+                <div className='box1' id='box1'>
+                    <span className='font span1'><h5></h5></span>
+                    <span className='font span2'><h5></h5></span>
+                    <span className='font span3'><h5></h5></span>
+                    <span className='font span4'><h5></h5></span>
+                    <span className='font span5'><h5></h5></span> 
+                    <span className='font span6'><h5></h5></span> 
+                    <span className='font span7'><h5></h5></span> 
+                    <span className='font span8'><h5></h5></span> 
                     <span className='centro'></span>
                 </div>
-              
              </div>
              <div className='base'></div> 
                   

@@ -42,7 +42,7 @@ function Preguntas (){
 
         <div className="text-white text-xl">
           <h3
-            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
+            className="bg-[#090979] hover:bg-[#338BB8] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
            
             ref={referencias[0]}
@@ -50,21 +50,21 @@ function Preguntas (){
             {preguntas[index]?.opcionA}
           </h3>
           <h3
-            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
+            className="bg-[#090979] hover:bg-[#338BB8] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
             ref={referencias[1]}
           >
             {preguntas[index]?.opcionB}
           </h3>
           <h3
-            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
+            className="bg-[#090979] hover:bg-[#338BB8] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
             ref={referencias[2]}
           >
             {preguntas[index]?.opcionC}
           </h3>
           <h3
-            className="bg-[#0958b7] hover:bg-[#0c5fdd] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
+            className="bg-[#090979] hover:bg-[#338BB8] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
             ref={referencias[3]}
           >

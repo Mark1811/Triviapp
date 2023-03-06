@@ -10,7 +10,7 @@ export function PreguntaContextProvider(props){
   errorSele.src = errorSelection;
 
     const [index, setIndex] = useState(0);
-    const [porcentaje, setPorcentaje] = useState(0);
+    const [porcentaje, setPorcentaje] = useState();
     const [preguntas, setPreguntas] = useState([]);
     const [respuestas, setRespuestas] = useState([]);
     const [respondido, setRespondido] = useState(false);
@@ -40,7 +40,7 @@ export function PreguntaContextProvider(props){
         if (e.current.classList.contains("bg-red-700/75")) {
           e.current.classList.remove("bg-red-700/75");
         }
-        e.current.classList.add("bg-[#0958b7]", "hover:bg-[#0c5fdd]");
+        e.current.classList.add("bg-[#090979]", "hover:bg-[#0c5fdd]");
       });
     };
 
@@ -53,11 +53,11 @@ export function PreguntaContextProvider(props){
 
       const colorearSegunRespuesta = (e, respuesta) => {
         if (respuesta === "Incorrecto") {
-          e.target.classList.remove("bg-[#0958b7]", "hover:bg-[#0c5fdd]");
+          e.target.classList.remove("bg-[#090979]", "hover:bg-[#0c5fdd]");
           e.target.classList.add("bg-red-700/75");
           errorSele.play();
         } else {
-          e.target.classList.remove("bg-[#0958b7]", "hover:bg-[#0c5fdd]");
+          e.target.classList.remove("bg-[#090979]", "hover:bg-[#0c5fdd]");
           e.target.classList.add("bg-green-600");
           soundCandy.play();
         }
@@ -72,7 +72,7 @@ export function PreguntaContextProvider(props){
             setSel(false);
           return;
         }
-        resetearJuego();
+     
       };
     
       const definirCorrecta = (e) => {
@@ -95,13 +95,14 @@ export function PreguntaContextProvider(props){
     
       
       
-      const uri ="http://localhost:8080/api/juego/preguntas";
+      const uri ="https://triviatecnologica.herokuapp.com/api/juego/preguntas";
       const GetPregunta = async () => {
           const response = await fetch(uri)
           const responseJson = await response.json()
           setPreguntas(responseJson)
         
       }
+
       useEffect(()=>{
          GetPregunta();
       },[])

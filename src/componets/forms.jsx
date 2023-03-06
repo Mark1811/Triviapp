@@ -11,11 +11,6 @@ import { PreguntaContext} from "../context/PreguntaContext";
 const Forms=() =>{
     const{ form, setForm} = useContext(PreguntaContext);
     let navegar = useNavigate();
-    
- 
-
-   
-
    const input =[
        {
            id:1,
@@ -61,9 +56,9 @@ const Forms=() =>{
     },
    ];
 
-    const handleSubmit =async (e)=>{
+    const handleSubmit = (e)=>{
         e.preventDefault();
-      await addUser(form);
+       addUser(form);
         navegar('/pregunta')
         window.location.reload();
     };
@@ -71,6 +66,7 @@ const Forms=() =>{
     const onChange =(e)=> {
       setForm({...form,[e.target.name]: e.target.value});
     };
+  
      
     const addUser =(data)=>{
          const requesInit = {
@@ -79,7 +75,7 @@ const Forms=() =>{
           body: JSON.stringify(data)
         }
         
-        fetch('http://localhost:8080/api/juego/registro', requesInit)
+        fetch('https://triviatecnologica.herokuapp.com/api/juego/registro', requesInit)
         .then(res => res.json())
       };
 
@@ -102,7 +98,6 @@ const Forms=() =>{
               key={input.id} {...input} 
               value={form[input.name]}
               onChange={onChange}/>
-
             ))}
           
         </form>

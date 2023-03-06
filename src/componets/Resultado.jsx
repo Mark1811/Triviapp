@@ -25,7 +25,7 @@ function Resultado (){
            <img className='imgGyl' src={gyl} loading="lazy"alt='logoGyl'/>
            <h1>¡¡Felicitaciones!! <br></br> Tu porcentaje ha sido de</h1>
            <h2 className='hGracia'>Muchas Gracias Por Participar</h2>
-           <button onClick={refresh} className='btnHome'>Home</button> 
+           <button onClick={refresh} className='btnHome'>Inicio</button> 
         </div>
       <div className='barra'>
         <ProgressBar

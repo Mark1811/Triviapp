@@ -20,9 +20,8 @@
     padding-right: 10%;
     text-align: center;
     align-items: center;
-    background-image: linear-gradient( 83.2deg,  rgba(149, 93, 233, 0.678) 10.8%, rgba(98, 88, 238, 0.644) 94.3% );
-    border-radius: 20px;
-    border: solid 2px rgb(233, 222, 222);
+    background-image: linear-gradient( 83.2deg,  rgb(14 177 223) 10.8%, rgb(10 94 186) 94.3% );
+    border: solid 2px rgb(9 135 182);
 }
 .titulo{
     padding: 10px;
@@ -30,7 +29,7 @@
     border-radius: 10px;
     font-size: 30px;
     color: #ffffff;
-    background-color: rgb(29, 57, 184);
+    background-color: #184684;
 }
 .descrip{
     color: #ffffff;
@@ -42,7 +41,7 @@
     position: absolute;
     left: 19%;
     width: 60%;
-    background-color: rgb(255, 238, 3);
+    background-color: rgb(177 243 6);
    border-radius: 10px;
 }
 .porcePregunta{
