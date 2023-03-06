@@ -1,0 +1,41 @@
+.robFeliz{
+    width: 10%;
+   
+}
+.robTriste{
+    width: 10%;
+}
+
+.robPens{
+    width: 10%;
+}
+#Rob{
+    position: absolute;
+   
+    z-index: 6;
+    opacity: 0;
+}
+
+#robF{
+    width: 26%;
+   
+}
+
+#robT{
+    position: absolute;
+    bottom: 0%;
+    width: 26%;
+}
+
+#Pen{
+    position: absolute;
+    width: 26%;
+    opacity: 1;
+    top: 13%;
+    left: 5.5%;
+  
+}
+
+.robPens{
+    width: 50%;
+}
