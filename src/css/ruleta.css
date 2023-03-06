@@ -1,0 +1,262 @@
+.mainbox{
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.mainbox:after{
+    position: relative;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background-size: 10%;  
+    left: 2%;
+    transform: rotate(90deg);
+    
+}
+
+.box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    border: 10px solid rgb(148, 5, 112);
+    overflow: hidden;
+    transition: all ease-in-out 5s;
+    transform: rotate(90deg);
+    z-index: 1;
+   
+}
+.box1{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: all ease-in-out 5s;
+    transform: rotate(90deg);
+    border: 10px solid rgb(226, 218, 224);
+}
+span{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+
+}
+.font{
+    color: #ffffff;
+    font-size: 15px;
+}
+.span1{
+    clip-path: polygon(0 30%, 0 70%, 50% 50%);
+    background-color: rgb(255, 255, 255);
+}
+
+.span2{
+    clip-path: polygon(70% 0, 30% 0, 50% 50%);
+    background-color: rgb(4, 169, 219);
+}
+
+.span3{
+    clip-path: polygon(100% 70%, 100% 30%, 50% 50%);
+    background-color: rgb(255, 251, 2);
+    
+}
+
+.span4{
+    clip-path: polygon(30% 100%, 70% 100%, 50% 50%);
+    background-color: rgb(255, 0, 85);
+}
+
+
+.span5{
+    clip-path: polygon(70% 100%, 102% 70%, 50% 50%);
+    background-color: rgb(0, 102, 255);
+   
+}
+.span6{
+    clip-path: polygon(0% 69%, 30% 103%, 50% 50%);
+    background-color: rgb(255, 0, 212);
+}
+.span7{
+    clip-path: polygon(30% 0%, -5% 28%, 50% 50%);
+    background-color: rgb(255, 0, 0);
+}
+.span8{
+    clip-path: polygon(102% 30%, 70% 0, 50% 50%);
+    background-color: rgb(247, 175, 175);
+}
+
+
+.box .span1 h5{
+    position: absolute;
+    top: 40%;
+    right:70%;
+    transform: rotate(-180deg);
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+}
+
+.box .span2 h5{
+    position: absolute;
+    top: 15%;
+    right: 43%;
+    transform: rotate(270deg);
+    text-align: center;
+    color: white;
+    
+}
+
+.box .span3 h5{
+    position: absolute;
+    top: 43%;
+    right: 15%;
+    transform: rotate(180deg);
+    text-align: center;
+    color: white;
+   
+}
+.box .span4 h5{
+    position: absolute;
+    top: 72%;
+    right: 43%;
+    transform: rotate(270deg);
+    text-align: center;
+    color: white;
+}
+.base{
+    position: relative;
+    width: 50%;
+    height: 50%;
+    top: 65%;
+    left: 26%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    background-color: rgb(148, 5, 112);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+
+}
+
+.spin{
+    position: absolute;
+    left:100px;
+    bottom: 185px;
+    transform: translate(-50%, -50%);
+    width: 98px;
+    height: 60px;
+    border-radius: 15%;
+    border: 1px solid white;
+    background: rgb(19, 92, 202);
+    color: aliceblue;
+    font-size: 18px;
+    cursor: pointer;
+     z-index: 2;
+}
+.spin:active{
+    width: 95px;
+    font-size: 15px;
+}
+
+.mainbox.animate:after{
+    animation: animateArrow 0.7s ease infinite;
+}
+/*
+audio{
+    display: none;
+}
+*/
+@keyframes animateArrow{
+    50%{
+        right: -50px;
+    }
+}
+
+
+.centro{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 10px solid rgb(131, 124, 133);
+    background: rgb(255, 255, 255);
+    color: aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 22px;
+    font-size: 17px;
+    
+}
+.robot{
+    position: absolute;
+    width: 20%;
+    height: 40%;
+    left: 5%; 
+}
+.logoGyl{
+    position: absolute;
+    width: 12%;
+    height: 20%;
+    left: 39%;
+    top: 7%;
+}
+.modal{
+    background: rgba(32,35,41,.8);
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: 2000;
+}
+.modalDentro{
+    display:grid;
+    justify-content:center;
+    align-items: center;
+    padding: 30px;
+    margin: auto;
+    margin-top: 12%;
+    width: 25%;
+    height: 18rem;
+    border-radius: 10%;
+    border: solid 2px rgb(252, 245, 245);
+    background-color: #000ae9;
+    background-image: linear-gradient(160deg, #000ae9 0%, #80a8d0 100%);
+    background-size: 100% 100%;
+}
+.modal h2{
+    display: block;
+    color:#ffffff;
+    font-size: 35px;
+    text-align: center;
+   
+}
+.modal button{
+    
+    padding: 5px;
+    border-radius:10px;
+    color: #ffffff;
+    background-color: blue;
+}
+.robotino4{
+    position: absolute;
+
+    left: 42%;
+    bottom: 65%;
+    width: 15%;
+}
+
+
+#container{
+  position: absolute;
+   max-width: 100%;
+   width: 90%;
+   display:grid;
+   justify-items: right;
+   padding-right: 20px;
+   padding-top: 110px;
+   bottom: 65px;
+   visibility:hidden;
+}
