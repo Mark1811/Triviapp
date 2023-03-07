@@ -75,7 +75,7 @@ const Forms=() =>{
           body: JSON.stringify(data)
         }
         
-        fetch('http://localhost:8080/api/juego/registro', requesInit)
+        fetch('https://triviatecnologica.herokuapp.com/api/juego/registro', requesInit)
         .then(res => res.json())
       };
 
