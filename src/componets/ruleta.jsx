@@ -54,7 +54,7 @@ function Ruleta(){
             ele.style.backgroundImage= "linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);"
         } 
        
-        let selectedItem = " ";
+        
         let TC = shuffle([1890,2250,2610]);
         let GE = shuffle([1850,2210,2570]);
         let MA = shuffle([1770,2130,2490]);
@@ -68,7 +68,7 @@ function Ruleta(){
             EN[0],
             CG[0],
         ]);
-        
+        let selectedItem = " ";
         if(TC.includes(results[0])) selectedItem = "Tecnologia";
         if(GE.includes(results[0])) selectedItem = "Geografia";     
         if(MA.includes(results[0])) selectedItem = "Matematicas";
@@ -112,6 +112,31 @@ function Ruleta(){
         contRuleta.style.visibility="visible";
     }
 
+    const categoModifi=(catego)=>{
+        let categoria;
+          switch(catego){
+            case "tecnologia":
+              categoria = "Tecnología";
+              break;
+            case "matematica":
+              categoria = "Matemática"
+              break;
+            case "entretenimiento":
+              categoria =  "Entretenimiento";
+              break;
+            case "geografia":
+              categoria = "Geografía";
+              break; 
+            case "conocimientoGeneral":
+              categoria = "Conocimiento General";
+              break;
+             default: categoria = "";   
+             
+          }
+            
+            return categoria;
+        }
+
     return(
     <div id='container'> 
        
@@ -119,14 +144,14 @@ function Ruleta(){
             <button id='girar' className='spin ' onClick={spin}>GIRAR</button>
              <div className='box' id='box'>
                 <div className='box1' id='box1'>
-                    <span className='font span1'><h5></h5></span>
-                    <span className='font span2'><h5></h5></span>
-                    <span className='font span3'><h5></h5></span>
-                    <span className='font span4'><h5></h5></span>
-                    <span className='font span5'><h5></h5></span> 
-                    <span className='font span6'><h5></h5></span> 
-                    <span className='font span7'><h5></h5></span> 
-                    <span className='font span8'><h5></h5></span> 
+                    <span className='font span1'></span>
+                    <span className='font span2'></span>
+                    <span className='font span3'></span>
+                    <span className='font span4'></span>
+                    <span className='font span5'></span> 
+                    <span className='font span6'></span> 
+                    <span className='font span7'></span> 
+                    <span className='font span8'></span> 
                     <span className='centro'></span>
                 </div>
              </div>
@@ -134,12 +159,11 @@ function Ruleta(){
                   
             </div>
      
-           
              { openModal && (
             <div className='modal'>
                 <div className='modalDentro'>
                    <img alt='robotino' className='robotino4' src={robotito4}/> 
-                  <h2>{preguntas[index]?.categoria}</h2>
+                  <h2>{categoModifi(preguntas[index]?.categoria)}</h2>
                   <button onClick={onClickButtonCancel}>Responder</button> 
                 </div>
             

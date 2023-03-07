@@ -95,7 +95,7 @@ export function PreguntaContextProvider(props){
     
       
       
-      const uri ="https://triviatecnologica.herokuapp.com/api/juego/preguntas";
+      const uri ="http://localhost:8080/api/juego/preguntas";
       const GetPregunta = async () => {
           const response = await fetch(uri)
           const responseJson = await response.json()

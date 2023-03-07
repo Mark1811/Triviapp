@@ -12,6 +12,32 @@ function Preguntas (){
    const {index,preguntas,definirCorrecta,porcentaje, referencias,solucion} = useContext(PreguntaContext);
    const[loadin,setLoadin] = useState(false);
    
+    
+   const categoModifi=(catego)=>{
+    let categoria;
+      switch(catego){
+        case "tecnologia":
+          categoria = "Tecnología";
+          break;
+        case "matematica":
+          categoria = "Matemática"
+          break;
+        case "entretenimiento":
+          categoria =  "Entretenimiento";
+          break;
+        case "geografia":
+          categoria = "Geografía";
+          break; 
+        case "conocimientoGeneral":
+          categoria = "Conocimiento General";
+          break;
+        default: categoria = "";      
+         
+      }
+        
+        return categoria;
+    }
+   
    useEffect(()=>{
     setLoadin(true)
     setTimeout(()=>{
@@ -33,7 +59,7 @@ function Preguntas (){
       <div > <Robot /></div>   
       <div className="cont-1">
         <h1 className="titulo">
-          {preguntas[index]?.categoria}
+        {categoModifi(preguntas[index]?.categoria)}
         </h1>
         <h2 className="descrip">{preguntas[index]?.descripcion}</h2>
         <h2 className="my-3 text-white hidden" ref={solucion}>
