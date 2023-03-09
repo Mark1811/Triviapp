@@ -32,9 +32,7 @@ function Resultado (){
           percent={porcentaje}
           unfilledBackground="rgba(0, 0, 255, 0.2)"
           filledBackground="linear-gradient(to right, #184684, #0150bb)"
-          className="h-24"
-          height={35}
-          text="Puntaje"
+          height={40}
         >
           <Step>
             {({ accomplished }) => (

@@ -62,13 +62,14 @@ function Preguntas (){
         {categoModifi(preguntas[index]?.categoria)}
         </h1>
         <h2 className="descrip">{preguntas[index]?.descripcion}</h2>
-        <h2 className="my-3 text-white hidden" ref={solucion}>
+        <h2 id="solucion" className="my-3 text-white hidden" ref={solucion}>
           Respuesta correcta: {preguntas[index]?.opcionCorrecta}
         </h2>
 
         <div className="text-white text-xl">
           <h3
-            className="bg-[#090979] hover:bg-[#338BB8] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
+            id="op32"
+            className="bg-[#090979]  transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
            
             ref={referencias[0]}
@@ -76,21 +77,24 @@ function Preguntas (){
             {preguntas[index]?.opcionA}
           </h3>
           <h3
-            className="bg-[#090979] hover:bg-[#338BB8] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
+            id="op32"
+            className="bg-[#090979]  transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
             ref={referencias[1]}
           >
             {preguntas[index]?.opcionB}
           </h3>
           <h3
-            className="bg-[#090979] hover:bg-[#338BB8] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
+            id="op32"
+            className="bg-[#090979]  transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
             ref={referencias[2]}
           >
             {preguntas[index]?.opcionC}
           </h3>
           <h3
-            className="bg-[#090979] hover:bg-[#338BB8] transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
+            id="op32"
+            className="bg-[#090979]  transition-colors my-4 mx-5 cursor-pointer rounded-xl p-3"
             onClick={definirCorrecta}
             ref={referencias[3]}
           >
@@ -100,14 +104,15 @@ function Preguntas (){
         </div>
       </div>
       <div className="porcen">
-        <ProgressBar
-          percent={porcentaje}
-          unfilledBackground="rgba(0, 0, 255, 0.2)"
-          filledBackground="linear-gradient(to right, #184684, #0150bb)"
-          className="h-24"
-          height={35}
          
-        >
+           <ProgressBar
+             percent={porcentaje}
+             unfilledBackground="rgba(0, 0, 255, 0.2)"
+             filledBackground="linear-gradient(to right, #184684, #0150bb)"
+             height={35}  
+            
+           >
+           
           <Step>
             {({ accomplished }) => (
               <div className="progress-step">

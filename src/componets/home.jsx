@@ -19,7 +19,6 @@ const Home=() =>{
 
 return(
     <div>
-
       <div> 
         <div className="containerMsj">
            <img className="mensaje" src={mensaje} />

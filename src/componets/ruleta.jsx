@@ -140,7 +140,7 @@ function Ruleta(){
     return(
     <div id='container'> 
        
-            <div className='mainbox ' id="mainbox">
+          <div className='mainbox ' id="mainbox">
             <button id='girar' className='spin ' onClick={spin}>GIRAR</button>
              <div className='box' id='box'>
                 <div className='box1' id='box1'>

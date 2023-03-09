@@ -6,8 +6,6 @@ max-width: 100%;
 max-height: 100%;
 width: 100%;
 height: 150%;
-
-
 }
 .resulDentro{
  width: 90%;
@@ -29,8 +27,6 @@ height: 150%;
   width:180px;
   height: 150px;
   object-fit: cover;
-
- 
 }
 .resulDentro h1{
     position: absolute;
@@ -83,6 +79,84 @@ position: absolute;
     background-color: rgba(7, 7, 129, 0.342);
     cursor: pointer;
 }
+
 .btnHome:hover{
   border: solid 1px beige;
+}
+
+/*---------------------RESPONSIVE----------------------*/
+
+@media (min-width:2560px) {
+    
+  .resulDentro{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+   }
+
+   .imgGyl{
+    position: absolute;
+    bottom: 70%;
+    width:15%;
+    height: 20%;
+    object-fit: cover;
+  }
+
+  .resulDentro h1{
+    font-size: 400%;
+  }
+
+  .barra{
+    position: absolute;
+    top: 51%;
+    left: 33%;
+    width: 35%;
+    height:5%;
+    padding-top: 10px;
+    background-color: rgb(241, 241, 236);
+   border-radius: 10px;
+    border: solid 10px rgb(255, 255, 255);
+  }
+
+  .porceRe{
+    font-size: 60px;
+  position: absolute;
+   bottom: 35px;
+   left: 22px;
+   color: #ffffff;
+  }
+
+  .hGracia{
+    top: 61%;
+    font-size: 350%;
+    height: 20%;
+    width: 30%;
+  }
+
+  .btnHome{
+    position: absolute;
+      width: 18%;
+      height: 10%;
+      top: 75%;
+      border-radius: 40px;
+      font-size: 55px;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      letter-spacing: 2px;
+      color:#ffff;
+      background-color: rgba(7, 7, 129, 0.342);
+      cursor: pointer;
+  }
+
+  .btnHome:hover{
+    border: solid 2px beige;
+  }
+
+  .imgRobot{
+    position: absolute;
+    width: 18%;
+    height: 40%;
+    left: 14%;
+    
+  }
+  
 }

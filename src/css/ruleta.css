@@ -161,11 +161,7 @@ span{
 .mainbox.animate:after{
     animation: animateArrow 0.7s ease infinite;
 }
-/*
-audio{
-    display: none;
-}
-*/
+
 @keyframes animateArrow{
     50%{
         right: -50px;
@@ -203,6 +199,7 @@ audio{
     top: 7%;
 }
 .modal{
+    
     background: rgba(32,35,41,.8);
     position: fixed;
     top: -10px;
@@ -226,26 +223,32 @@ audio{
     background-image: linear-gradient(160deg, #000ae9 0%, #80a8d0 100%);
     background-size: 100% 100%;
 }
-.modal h2{
-    display: block;
+.modalDentro h2{
+   position:relative;
     color:#ffffff;
-    font-size: 35px;
+    font-size: 200%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    bottom: 80px;
+ 
    
 }
 .modal button{
-    
-    padding: 5px;
+    position: relative;
+    padding: 10px;
     border-radius:10px;
     color: #ffffff;
+    bottom: 110%;
     background-color: blue;
+
 }
 .robotino4{
-    position: absolute;
-
-    left: 42%;
+    position: relative;
+    left: 25%;
     bottom: 65%;
-    width: 15%;
+    width: 50%;
+    
 }
 
 
@@ -259,4 +262,73 @@ audio{
    padding-top: 110px;
    bottom: 65px;
    visibility:hidden;
+}
+
+/*---------------------RESPONSIVE----------------------*/
+
+@media (min-width:2560px){
+
+    #container{
+        bottom: 20%;
+
+      }
+
+      .mainbox{
+        position: relative;
+        width: 300px;
+        height: 300px;
+    }
+    .spin{
+        left:150px;
+        bottom: 280px;
+        width: 160px;
+        height: 85px;
+       font-size: 35px;
+    }
+
+    .spin:active{
+        width: 155px;
+        font-size: 30px;
+        
+    }
+
+    .robotino4{
+        position: relative;
+        left: 25%;
+        bottom: 75%;
+        width: 50%;
+       
+    }
+    .modalDentro{
+        display: grid;
+        justify-content: center;
+        padding: 30px;
+        margin: auto;
+        margin-top: 12%;
+        width: 40%;
+        height: 50%;
+        border-radius: 10%;
+    }
+
+    .modal h2{
+        position: relative;
+        color:#ffffff;
+        font-size: 100px;
+        text-align: center;
+        top: -150%;
+       display: block;
+    }
+    .modal button{
+        position:relative;
+        padding: 6px;
+        width: 100%;
+        height:100%;
+        font-size: 50px;
+        border-radius:20px;
+        color: #ffffff;
+        background-color: blue;
+        top: -210%;
+        border: solid 1px black;
+    }
+
 }

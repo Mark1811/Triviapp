@@ -28,7 +28,7 @@ const Forms=() =>{
         name: "nombre",
         type:"text",
         placeholder: "Nombre",
-        errorMessage:" Deberia tener 3-16 caracteres y no deberia incluir ningun tipo de caracteres!",
+        errorMessage:" Deberia tener 3-16 caracteres ",
         label: "Nombre",
         pattern: "^[A-Za-z0-9]{3,16}$",
        
@@ -75,7 +75,7 @@ const Forms=() =>{
           body: JSON.stringify(data)
         }
         
-        fetch('http://localhost:8080/api/juego/registro', requesInit)
+        fetch('https://triviatecnologica.herokuapp.com/api/juego/registro', requesInit)
         .then(res => res.json())
       };
 
@@ -102,7 +102,7 @@ const Forms=() =>{
           
         </form>
                <div className="cont50">
-                 <button onClick={handleSubmit} className="botonEmpezar" >Girar</button>
+                 <button onClick={handleSubmit} className="botonEmpezar" >Jugar</button>
                  <img alt="ruletaGyl" className="rul23" src={ruleta}/>
                </div>
               
